@@ -83,22 +83,53 @@ const menu = [
 
 
 
-let dis = menu.map(function(value){
 
-return `  <article class="menu-item">
-<img src=${value.img} alt="menu item" class="photo" />
-<div class="item-info">
-  <header>
-    <h4>${value.title}</h4>
-    <h4 class="price">${value.price}</h4>
-  </header>
-  <p class="item-text">
-   ${value.desc}
-  </p>
-</div>
-</article>
-`
 
+let button = menu.map(function(value) {
+
+  return ` <button type="button" class="filter-btn" data-id="breakfast" onclick="filterData('${value.category}')">
+  ${value.category}
+</button>`
 })
 
-document.getElementById("menu").innerHTML = dis.join(" ");
+display(menu);
+
+document.getElementById("btn").innerHTML = button.join(" ");
+
+function filterData(categroy)
+{
+  let p = menu.filter(function(value) {
+
+    return value.category == categroy
+
+  });
+
+  display(p);
+
+  
+
+}
+
+function display(p)
+{
+  let dis = p.map(function(value){
+
+    return `  <article class="menu-item">
+    <img src=${value.img} alt="menu item" class="photo" />
+    <div class="item-info">
+      <header>
+        <h4>${value.title}</h4>
+        <h4 class="price">${value.price}</h4>
+      </header>
+      <p class="item-text">
+       ${value.desc}
+      </p>
+    </div>
+    </article>
+    `
+    
+    })
+
+    document.getElementById("menu").innerHTML = dis.join(" ");
+
+}
