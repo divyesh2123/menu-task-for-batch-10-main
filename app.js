@@ -133,3 +133,63 @@ function display(p)
     document.getElementById("menu").innerHTML = dis.join(" ");
 
 }
+
+function low()
+{
+  menu.sort(function(a,b){
+
+    return a.price - b.price;
+  })
+
+  display(menu)
+
+}
+
+function high()
+{
+
+  menu.sort(function(a,b){
+
+    return b.price - a.price;
+  })
+
+  display(menu)
+}
+
+function lowA()
+{
+  menu.sort(function(a,b){
+
+    if(a.title> b.title)
+    {
+      return 1;
+    }
+    else
+    {
+      return -1;
+    }
+  
+  })
+
+  display(menu)
+}
+
+function highA()
+{
+
+  menu.sort(function(a,b){
+
+    if(a.title> b.title)
+    {
+      return -1;
+    }
+    else
+    {
+      return 1;
+    }
+  
+  })
+
+  display(menu)
+
+}
