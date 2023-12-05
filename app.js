@@ -85,10 +85,21 @@ const menu = [
 
 
 
-let button = menu.map(function(value) {
+let button = menu.reduceRight(function(pre,value,index){
 
-  return ` <button type="button" class="filter-btn" data-id="breakfast" onclick="filterData('${value.category}')">
-  ${value.category}
+  if(pre.includes(value.category) == false)
+  {
+    pre.push(value.category);
+   
+  }
+
+  return pre;
+  
+
+},[]).map(function(value) {
+
+  return ` <button type="button" class="filter-btn" data-id="breakfast" onclick="filterData('${value}')">
+  ${value}
 </button>`
 })
 
