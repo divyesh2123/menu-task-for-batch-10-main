@@ -85,7 +85,7 @@ const menu = [
 
 
 
-let button = menu.reduceRight(function(pre,value,index){
+let button = menu.reduce(function(pre,value,index){
 
   if(pre.includes(value.category) == false)
   {
