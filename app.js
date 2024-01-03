@@ -96,7 +96,11 @@ let button = menu.reduce(function(pre,value,index){
   return pre;
   
 
-},[]).map(function(value) {
+},[]);
+
+button.push("all");
+
+let d = button.map(function(value) {
 
   return ` <button type="button" class="filter-btn" data-id="breakfast" onclick="filterData('${value}')">
   ${value}
@@ -105,13 +109,13 @@ let button = menu.reduce(function(pre,value,index){
 
 display(menu);
 
-document.getElementById("btn").innerHTML = button.join(" ");
+document.getElementById("btn").innerHTML = d.join(" ");
 
 function filterData(categroy)
 {
   let p = menu.filter(function(value) {
 
-    return value.category == categroy
+    return value.category == categroy || categroy =="all"
 
   });
 
